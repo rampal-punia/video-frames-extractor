@@ -84,28 +84,29 @@ def extract_images_from_video(vid_name,
         sec = round(sec, 2)
 
 
-vid_path = settings.VIDEO_FILE_PATH
-vid_name = settings.VIDNAME_WITHOUT_EXT
-required_frame_rate = settings.REQUIRED_FRAME_RATE
-start_from_seconds = settings.START_FROM_SECOND
-out_dirname = settings.OUTDIR
-img_frmt = settings.REQUIRED_IMAGE_FORMAT
+if __name__ == '__main__':
+    vid_path = settings.VIDEO_FILE_PATH
+    vid_name = settings.VIDNAME_WITHOUT_EXT
+    required_frame_rate = settings.REQUIRED_FRAME_RATE
+    start_from_seconds = settings.START_FROM_SECOND
+    out_dirname = settings.OUTDIR
+    img_frmt = settings.REQUIRED_IMAGE_FORMAT
 
-if os.path.exists(vid_path):
-    vid_cap = cv2.VideoCapture(vid_path)
-    frames = int(vid_cap.get(cv2.CAP_PROP_FRAME_COUNT)) - 1
-    print(f"[TOTAL FRAMES] - {frames}")
-    fps = int(vid_cap.get(cv2.CAP_PROP_FPS))
-    print(f"[FRAMES PER SECOND] - {fps}")
-    seconds = int(frames/fps)
-    print(f"[VIDEO LENGTH] - {seconds} seconds")
+    if os.path.exists(vid_path):
+        vid_cap = cv2.VideoCapture(vid_path)
+        frames = int(vid_cap.get(cv2.CAP_PROP_FRAME_COUNT)) - 1
+        print(f"[TOTAL FRAMES] - {frames}")
+        fps = int(vid_cap.get(cv2.CAP_PROP_FPS))
+        print(f"[FRAMES PER SECOND] - {fps}")
+        seconds = int(frames/fps)
+        print(f"[VIDEO LENGTH] - {seconds} seconds")
 
-    extract_images_from_video(vid_name,
-                              vid_cap,
-                              out_dirname,
-                              img_frmt,
-                              required_frame_rate,
-                              start_from_seconds
-                              )
-else:
-    print(f"The specified path ({vid_path}) does not exists!!!")
+        extract_images_from_video(vid_name,
+                                  vid_cap,
+                                  out_dirname,
+                                  img_frmt,
+                                  required_frame_rate,
+                                  start_from_seconds
+                                  )
+    else:
+        print(f"The specified path ({vid_path}) does not exists!!!")
