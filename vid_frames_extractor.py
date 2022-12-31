@@ -25,20 +25,27 @@ def extract_images_from_video(vid_name,
         framerate = float(required_frame_rate)
     else:
         framerate = 1
-
+    print("======================================")
+    print(f"[OUT FILE DIRECTORY] - {out_dirname}")
     while (vid_cap.isOpened()):
         vid_cap.set(cv2.CAP_PROP_POS_MSEC, sec*1000)
         success, image = vid_cap.read()
         if success:
             try:
-                # save frame as jpg file
-                print("========")
-                file_location = f"{out_dirname}/{vid_name}_{count}.{img_frmt}"
-                print(file_location)
-                cv2.imwrite(file_location, image)
-                img = cv2.imread(file_location)
+                # save frames
+                orig_file_dir = os.path.join(out_dirname, 'orig_file')
+                resize_file_dir = os.path.join(out_dirname, 'resize_file')
+                if not (os.path.exists(orig_file_dir) and os.path.exists(resize_file_dir)):
+                    os.makedirs(orig_file_dir)
+                    os.makedirs(resize_file_dir)
+
+                orig_file_location = f"{orig_file_dir}/{vid_name}_{count}.{img_frmt}"
+                resize_file_location = f"{resize_file_dir}/{vid_name}_{count}.{img_frmt}"
+
+                cv2.imwrite(orig_file_location, image)
+                img = cv2.imread(orig_file_location)
                 img = imutils.resize(img, width=settings.REQUIRED_IMAGE_WIDTH)
-                cv2.imwrite(file_location, img)
+                cv2.imwrite(resize_file_location, img)
                 count += 1
                 sec = sec + framerate
                 sec = round(sec, 2)

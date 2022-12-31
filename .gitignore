@@ -15,6 +15,8 @@ __pycache__/
 
 # local folder
 videos
+vid_1
+vid_1/*
 videos/*
 
 # C extensions
