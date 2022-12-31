@@ -16,7 +16,7 @@ pip install imutils
 # the path inside settings file.
 ```
 
-## Settings
+## Edit the Settings
 
 Edit required settings in the `settings.py`
 
@@ -37,4 +37,10 @@ REQUIRED_IMAGE_WIDTH = 480                  # EDIT: 6
 
 # Output frames dirpath
 OUTDIR = BASE_ROOT/'vid_2'                  # EDIT: 7 (Required)
+```
+
+## Run
+
+```python
+python vid_frames_extractor.py
 ```
