@@ -2,13 +2,14 @@
 
 ## Table of Contents
 
-- Overview
-- Why this app?
-- Features
-- Installation
-- Configuration
-- Feedback
-- License
+- [Overview](https://github.com/CodingMantras/video-frames-extractor#overview)
+- [Why this app?](https://github.com/CodingMantras/video-frames-extractor#why-this-app)
+- [Features](https://github.com/CodingMantras/video-frames-extractor#features)
+- [Installation](https://github.com/CodingMantras/video-frames-extractor#installation)
+- [Example](https://github.com/CodingMantras/video-frames-extractor#example)
+- [Configuration](https://github.com/CodingMantras/video-frames-extractor#configuration)
+- [Feedback](https://github.com/CodingMantras/video-frames-extractor#feedback)
+- [License](https://github.com/CodingMantras/video-frames-extractor#license)
 
 ## Overview
 
