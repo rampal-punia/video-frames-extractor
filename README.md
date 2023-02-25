@@ -96,8 +96,8 @@ OUTDIR = BASE_ROOT/'skyscraper'             # EDIT: 6 (Required)
 
 ## Feedback
 
-If you encounter any issues with the app or have any feedback or suggestions for improvement, please contact [Your Email Address]
+If you encounter any issues with the app or have any feedback or suggestions for improvement [raise an issue](https://github.com/CodingMantras/video-frames-extractor/issues)
 
 ## License
 
-The Video Frame Extractor is licensed under the MIT License. See the LICENSE file for details.
+The Video Frame Extractor is licensed under the MIT License. See the [LICENSE](https://github.com/CodingMantras/video-frames-extractor/blob/master/LICENSE) file for details.
