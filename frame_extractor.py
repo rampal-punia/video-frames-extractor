@@ -39,9 +39,6 @@ class FrameExtractor:
         """Extract frames from a video."""
         count = 1
 
-        # Get start time
-        time_start = time.time()
-
         vid_cap = cv2.VideoCapture(str(Path(self.vid)))
         frames = int(vid_cap.get(cv2.CAP_PROP_FRAME_COUNT)) - 1
         fps = int(vid_cap.get(cv2.CAP_PROP_FPS))
@@ -84,12 +81,8 @@ class FrameExtractor:
                     print("[ERROR CODE 1001]")
                     print(ex)
             else:
-                time_end = time.time()
-                if self.verbose:
-                    print(
-                        f"Done extracting frames: {count - 1} orig & {count - 1} resized frames extracted.")
-                    print(
-                        f"It took {time_end-time_start:.2f} seconds for conversion.")
+                print(
+                    f"Done extracting frames: {count - 1} orig & {count - 1} resized frames extracted.")
                 break
 
             count += 1
@@ -128,10 +121,16 @@ def main(vid_dir: str = vid_dir,
     vid_dir_path = Path(vid_dir)
     out_dir = Path(out_dir)
     if vid_dir_path.exists():
+        # Get start time
+        time_start = time.time()
         for vid in vid_dir_path.iterdir():
             frame_extractor = FrameExtractor(
                 vid, out_dir, img_frmt, required_frame_rate, start_from_seconds, img_width, verbose)
             frame_extractor.extract_frames()
+        time_end = time.time()
+        if verbose:
+            print(
+                f"It took {time_end-time_start:.2f} seconds for conversion.")
     else:
         print(f"The specified path ({vid_dir}) does not exist!")
 
