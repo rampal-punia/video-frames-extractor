@@ -21,20 +21,23 @@ This script allows you to extract frames from videos at a specified rate. By spe
 
 For image annotation, it's often necessary to extract frames from videos. This application makes it easy to generate a large dataset of images for training object detection or image classification models, even if your data is initially in the form of videos.
 
-By automating the frame extraction process, this app saves you time and effort compared to manually extracting frames from each video file.
+By automating the frame extraction process for iterating over all the video files inside a directory, this app saves you time and effort compared to manually extracting frames from each video file.
 
-We hope you find the Video Frame Extractor useful for your computer vision projects!
+Hope you find the Video Frame Extractor useful for your computer vision projects!
 
 ## Features
 
-To use the Video Frame Extractor, you need to run the frame_extractor.py Python script with the following arguments:
+To use the Video Frame Extractor, you need to run the `frame_extractor.py` Python script with the following arguments:
 
 - `vid_dir`: the path to the directory containing the video file(s) you want to extract frames from.
 - `out_dir`: the path to the directory where you want to save the extracted frames.
-- `img_frmt` (optional): the image format to save the extracted frames in. Default is jpg.
-- `required_frame_rate` (optional): the number of frames to extract per second. Default is 1.
-- `start_from_seconds` (optional): the number of seconds from which to start extracting frames. Default is 0.
-- The app will extract frames from all videos in the specified directory and save them to the output directory.
+- `img_frmt` (optional): the image format to save the extracted frames in. Default is **jpg**.
+- `required_frame_rate` (optional): the number of frames to extract per second. Default is **1**.
+- `start_from_seconds` (optional): the number of seconds from which to start extracting frames. Default is **0**.
+
+The app will extract frames from all videos in the specified directory and save them to the output directory.
+
+Instead of passing the arguments every time you run this app you can add these arguments inside the settings.py file. [settings](https://github.com/CodingMantras/video-frames-extractor#edit-the-settings)
 
 ## Installation
 
@@ -50,10 +53,16 @@ You can install these packages using pip, by running the following command in yo
 pip install opencv-python imutils fire
 ```
 
+### Help
+
+```python
+python frame_extractor.py --help
+```
+
 ### Run
 
 ```python
-python frame_extractor.py [vid_dir] [out_dir] --img_frmt=[img_frmt] --required_frame_rate=[required_frame_rate] --start_from_seconds=[start_from_seconds]
+python frame_extractor.py --vid_dir=[vid_dir] --out_dir=[out_dir] --img_frmt=[img_frmt] --required_frame_rate=[required_frame_rate] --start_from_seconds=[start_from_seconds]
 ```
 
 ## Example
@@ -61,7 +70,7 @@ python frame_extractor.py [vid_dir] [out_dir] --img_frmt=[img_frmt] --required_f
 Suppose you have a video file called my_video.mp4 located in the /path/to/video directory, and you want to extract frames from it and save them in the /path/to/output directory, with a frame rate of 2 frames per second and starting from 10 seconds into the video. You can run the following command:
 
 ```python
-python frame_extractor.py /path/to/video /path/to/output --required_frame_rate=2 --start_from_seconds=10
+python frame_extractor.py --vid_dir=/path/to/video --out_dir=/path/to/output --required_frame_rate=2 --start_from_seconds=10
 ```
 
 The script will extract frames from my_video.mp4, save the original size frames in /path/to/output/orig_size_frames directory and the resized frames in /path/to/output/re_size_frames directory. The extracted frames will be saved in JPEG format, with a filename of the form my_video_1.jpg, my_video_2.jpg, and so on.
