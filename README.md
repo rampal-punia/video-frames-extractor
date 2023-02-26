@@ -113,7 +113,9 @@ OUTDIR = BASE_ROOT/'skyscraper'             # EDIT: 6 (Required)
 
 ## Feedback
 
-If you encounter any issues with the app or have any feedback or suggestions for improvement [raise an issue](https://github.com/CodingMantras/video-frames-extractor/issues)
+If you find my Python code helpful consider giving it a star.
+
+For any issues with the app or have any feedback or suggestions for improvement. Please [raise an issue](https://github.com/CodingMantras/video-frames-extractor/issues)
 
 ## License
 
