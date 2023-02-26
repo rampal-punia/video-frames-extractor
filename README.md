@@ -39,6 +39,8 @@ The app will extract frames from all videos in the specified directory and save 
 
 Instead of passing the arguments every time you run this app you can add these arguments inside the settings.py file. [settings](https://github.com/CodingMantras/video-frames-extractor#edit-the-settings)
 
+### For multithreaded version run `python frame_extractor_multithread.py`
+
 ## Installation
 
 To use the Video Frame Extractor, you need to have Python 3 and the following Python packages installed:
@@ -65,6 +67,8 @@ python frame_extractor.py --help
 python frame_extractor.py --vid_dir=[vid_dir] --out_dir=[out_dir] --img_frmt=[img_frmt] --required_frame_rate=[required_frame_rate] --start_from_seconds=[start_from_seconds]
 ```
 
+The extraction process for all the videos in the `vid_dir` will start and extracted frames will be saved to the `out_dir`
+
 ## Example
 
 Suppose you have a video file called my_video.mp4 located in the /path/to/video directory, and you want to extract frames from it and save them in the /path/to/output directory, with a frame rate of 2 frames per second and starting from 10 seconds into the video. You can run the following command:
@@ -86,6 +90,10 @@ For example:
 Edit required settings in the `settings.py`
 
 ```python
+# If you don't want to pass too many arguments every time you can modify the settings here.
+# And the script will accept the setting from this file every time you run
+# 'python extract_frames.py'
+
 # Video file
 VIDEO_DIRPATH = ROOT / 'videos'             # EDIT: 1 (Required)
 
