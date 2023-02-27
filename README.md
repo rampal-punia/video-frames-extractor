@@ -13,7 +13,7 @@
 
 ## Overview
 
-The Video Frame Extractor is a Python script that allows you to extract frames from a video file and save them as individual image files in two different directories: one for the original size frames and one for the resized frames. The script uses OpenCV and imutils Python packages for image processing and Fire Python package for a simplified command-line interface.
+The Video Frame Extractor is a Python script that allows you to extract frames iterating over all the video files from a directory and save them as individual image files in two different directories: one for the original size frames and one for the resized frames. The script uses OpenCV and imutils Python packages for image processing and Fire Python package for a simplified command-line interface.
 
 This script allows you to extract frames from videos at a specified rate. By specifying the desired interval (in seconds) between extracted frames, you can quickly generate a large dataset of images for object detection, image classification, or other computer vision tasks.
 
