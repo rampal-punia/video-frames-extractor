@@ -22,7 +22,7 @@ ROOT = Path(Path.relative_to(BASE_ROOT, Path.cwd()))
 VIDEO_DIRPATH = ROOT / 'videos'             # EDIT: 1 (Required)
 
 # Frame settings
-REQUIRED_FRAME_RATE = 2                 # EDIT: 2
+REQUIRED_FRAME_RATE = 3                 # EDIT: 2
 # Number of seconds for a frame. For example: 0.5 means, 1 frame after 0.5 seconds pass
 
 START_FROM_SECOND = 1                      # EDIT: 3

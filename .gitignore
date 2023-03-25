@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Local folder
+local_folder
+
 # video
 *.mp4
 *.m4v

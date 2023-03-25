@@ -1,18 +1,12 @@
 # in-built modules
 from pathlib import Path
-import time
 
 # dependencies packages
 import cv2
-import imutils
-import fire
-
-# Internal module
-import settings
 
 
 class FrameExtractor:
-    def __init__(self, vid, out_dir, img_frmt='jpg', required_frame_rate=None, start_from_seconds=None, img_width=720, verbose=True):
+    def __init__(self, vid, out_dir, img_frmt, required_frame_rate, start_from_seconds, img_width, verbose):
         self.vid = vid
         self.out_dir = out_dir
         self.img_frmt = img_frmt
@@ -72,8 +66,7 @@ class FrameExtractor:
                     cv2.imwrite(orig_file_location, image)
 
                     # Resize and write the image
-                    img = imutils.resize(
-                        image, width=settings.REQUIRED_IMAGE_WIDTH)
+                    img = cv2.resize(image, self.img_width)
                     cv2.imwrite(resize_file_location, img)
 
                     print(f"Done: {count}")
@@ -88,52 +81,3 @@ class FrameExtractor:
             count += 1
             sec += self.required_frame_rate
             vid_cap.set(cv2.CAP_PROP_POS_MSEC, sec * 1000)
-
-
-vid_dir = settings.VIDEO_DIRPATH
-out_dir = settings.OUTDIR
-required_frame_rate = settings.REQUIRED_FRAME_RATE
-start_from_seconds = settings.START_FROM_SECOND
-img_frmt = settings.REQUIRED_IMAGE_FORMAT
-img_width = settings.REQUIRED_IMAGE_WIDTH
-verbose = True
-
-
-def main(vid_dir: str = vid_dir,
-         out_dir: str = out_dir,
-         img_frmt: str = 'jpg',
-         required_frame_rate: int = required_frame_rate,
-         start_from_seconds: int = start_from_seconds,
-         img_width: int = img_width,
-         verbose: bool = True,
-         ):
-    """Extract frames from videos and save them as images.
-
-    Args:
-        vid_dir: The path to the directory containing the videos.
-        out_dir: The path to the directory where the images will be saved.
-        img_frmt: The image format to use for saving the images. Defaults to 'jpg'.
-        required_frame_rate: The frame rate at which to extract frames from the videos.
-            Defaults to 5 frames per second.
-        start_from_seconds: The number of seconds into the video to start extracting frames.
-            Defaults to 0 (start from the beginning of the video).
-    """
-    vid_dir_path = Path(vid_dir)
-    out_dir = Path(out_dir)
-    if vid_dir_path.exists():
-        # Get start time
-        time_start = time.time()
-        for vid in vid_dir_path.iterdir():
-            frame_extractor = FrameExtractor(
-                vid, out_dir, img_frmt, required_frame_rate, start_from_seconds, img_width, verbose)
-            frame_extractor.extract_frames()
-        time_end = time.time()
-        if verbose:
-            print(
-                f"It took {time_end-time_start:.2f} seconds for conversion.")
-    else:
-        print(f"The specified path ({vid_dir}) does not exist!")
-
-
-if __name__ == '__main__':
-    fire.Fire(main)
