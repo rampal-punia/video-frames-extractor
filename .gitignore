@@ -13,7 +13,7 @@ local_folder
 *.AVI
 *.flv
 *.jpg
-*.png
+# *.png
 *.pt
 *.ts
 

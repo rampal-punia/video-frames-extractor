@@ -1,5 +1,12 @@
 # Video Frames Extractor
 
+As I have explained in details in this blog tutorial on how to build this project with explanations and code samples.
+
+|Video Files Directory|Extracted Images Directory|
+|-----------------|------------------|
+|<img src="assets/video.png" />|<img src="assets/frames.png" />|
+|Iterate over all the videos inside a directory|Extract frames (After customization(desired interval (in seconds) between extracted frames, start after (desired seconds) etc) |
+
 ## Table of Contents
 
 - [Overview](https://github.com/CodingMantras/video-frames-extractor#overview)
